@@ -26,7 +26,7 @@ let BookService = class BookService {
         return this.bookRepository.save(data);
     }
     async findAll() {
-        return this.bookRepository.find();
+        return await this.bookRepository.query(`SELECT * FROM book ;`);
     }
     findOne(id) {
         return `This action returns a #${id} book`;

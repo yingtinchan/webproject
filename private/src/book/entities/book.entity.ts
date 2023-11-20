@@ -22,12 +22,18 @@ export class Book {
   @Column({ default: true })
   available: boolean;
   
-  @ManyToOne(() => Student, (student) => student.books)
+  // @ManyToOne(() => Student)
   // @JoinColumn({ name: "student", referencedColumnName: "student_id" })
+  // student: Student
+  @ManyToOne(() => Student, (student) => student.books)
+  @JoinColumn({ name: "student", referencedColumnName: "student_id" })
   student: Student
 
-  @ManyToOne(() => Teacher, (teacher) => teacher.books)
+  // @ManyToOne(() => Teacher)
   // @JoinColumn({ name: "teacher", referencedColumnName: "teacher_id" })
+  // teacher: Teacher
+  @ManyToOne(() => Teacher, (teacher) => teacher.books)
+  @JoinColumn({ name: "teacher", referencedColumnName: "teacher_id" })
   teacher: Teacher
 
   @CreateDateColumn()

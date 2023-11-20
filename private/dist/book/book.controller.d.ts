@@ -11,7 +11,7 @@ export declare class BookController {
     getByAuthor(query: {
         author: string;
     }): Promise<import("./entities/book.entity").Book[]>;
-    findAll(): Promise<import("./entities/book.entity").Book[]>;
+    findAll(): Promise<any>;
     update(id: string, updateBookDto: UpdateBookDto): string;
     remove(id: string): Promise<import("typeorm").DeleteResult>;
 }

@@ -18,15 +18,9 @@ export class BookService {
   }
 
   async findAll() {
-    return this.bookRepository.find();
-    // return await this.bookRepository.createQueryBuilder('book')
-    // .innerJoinAndSelect('student.student_id', 'student_id')
-    // .innerJoinAndSelect('teacher.teacher_id', 'teacher_id')
-    // .innerJoinAndSelect('student.name', 'student name')
-    // .innerJoinAndSelect('teacher.name', 'teacher name').getMany();
-    // return await this.bookRepository.createQueryBuilder('book')
-    // .innerJoinAndSelect('book.student', 'student')
-    // .innerJoinAndSelect('book.teacher', 'teacher').getMany();
+    return await this.bookRepository.query(
+      `SELECT * FROM book ;`
+    );
   }
 
   findOne(id: number) {

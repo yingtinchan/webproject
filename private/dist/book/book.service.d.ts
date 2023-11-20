@@ -6,7 +6,7 @@ export declare class BookService {
     private readonly bookRepository;
     constructor(bookRepository: Repository<Book>);
     create(createBookDto: CreateBookDto): Promise<Book>;
-    findAll(): Promise<Book[]>;
+    findAll(): Promise<any>;
     findOne(id: number): string;
     findByName(name: string): Promise<Book[]>;
     findByAuthor(author: string): Promise<Book[]>;

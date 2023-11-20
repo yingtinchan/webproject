@@ -20,26 +20,24 @@ async function getdata() {
     let status
     let btn
 
-    let table = '<tr><th>Book ID</th><th>Book Name</th><th>Category</th><th>Book Status</th></tr>'
+    let table = '<tr><th>Book ID</th><th>Book Name</th><th>Category</th><th>Book Status</th><th>borrower</th></tr>'
     for (let i = 0; i < books.length; i++) {
         if (books[i].available) {
-            status = "book-status on"
-            btn = "bookresult-btn"
+            status = "available"
         } else {
-            status = "book-status"
-            btn = "bookresult-btn off"
+            status = "not available"
         }
         let borrower = ''
-        if(books[i].borrower_student_id) {
-            borrower = books[i].borrower_student_id
-        } else if(books[i].borrower_teacher_id){
-            borrower = books[i].borrower_teacher_id
+        if(books[i].student) {
+            borrower = books[i].student
+        } else if(books[i].teacher){
+            borrower = books[i].teacher
         }
         table += `<tr>
                 <th>${books[i].book_id}</th>
                 <th>${books[i].name}</th>
                 <th>${books[i].category}</th>
-                <th><div class="${status}">available</div></th>
+                <th>${status}</th>
                 <th>${borrower}</th>
                 </tr>`
     }
