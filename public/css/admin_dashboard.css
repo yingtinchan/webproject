@@ -7,8 +7,10 @@
 }
 
 :root {
+    --black-color: #000000;
     --grey-color: #b1adad;
     --border-color: #e7e8ea;
+    --active-color: #1da583; 
 }
 
 .container {
@@ -53,15 +55,43 @@
     font-style: italic;
 }
 
+.left_sidebar .menu_items a:link{
+    text-decoration: none;
+}
+
+.left_sidebar .menu_items a:link{
+    color: #000000;
+}
+
+
+.left_sidebar .menu_items a:hover {
+    color: var(--active-color);
+}
+
+
 .left_sidebar .menu_items .menu_item {
     display: flex;
     align-items: center;
     gap: 10px;
     font-size: 17px;
-    color: var(--grey-color);
+    color: var(--black-color);
     padding: 20px 30px;
     cursor: pointer;
 }
+
+.left_sidebar .menu_items .menu_item:link {
+    text-decoration: none;
+    color: #000000;
+}
+
+
+.left_sidebar .menu_items .menu_item:hover {
+    text-decoration: none;
+    color: var(--active-color);
+    font-size: 1.17em;
+    font-weight: bold;
+}
+
 
 
 /*----- Main Content -----*/
@@ -191,8 +221,60 @@
     position: relative;
 }
 
+
 .tabs .tab_name p {
     margin-left: 12px;
+}
+
+.tabs .tab_name :hover {
+    text-decoration: none;
+    color: var(--active-color);
+    font-size: 1.17em;
+    font-weight: bold;
+}
+
+.tabs .tab_name::before {           /*When onclick datagbse:Student*/
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 10%;
+    height: 2px;
+    background-color: #808080;
+}
+
+.tabs .tab_name::after {             /*When onclick dateabse:Student*/
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #cfcfcf;
+}
+
+
+.tabs .tab_name::after:active {             /*When onclick dateabse:Student*/
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #cfcfcf;
+}
+
+/*
+                        When:onlick Database:Teacher
+
+.tabs .tab_name::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 24%;
+    height: 2px;
+    background-color: #808080;
 }
 
 .tabs .tab_name::after {
@@ -200,10 +282,33 @@
     position: absolute;
     bottom: -2px;
     left: 0;
-    width: 12%;
+    width: 10%;
+    height: 2px;
+    background-color: #cfcfcf;
+}
+
+                    When: onlick Database:Staff
+
+
+.tabs .tab_name::before {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 32%;
     height: 2px;
     background-color: #808080;
 }
+
+.tabs .tab_name::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 24%;
+    height:
+*/
+
 
 .main_content .table {
     overflow-x: auto;
@@ -640,7 +745,7 @@
     }
 }
 
-@media(min-width: 769px) and (max-width: 1200px) {
+@media(min-width: 769px) and (max-width: 1000px) {
     /*----- left_sidebar -----*/
     .left_sidebar {
         transform: translateX(-150%);
